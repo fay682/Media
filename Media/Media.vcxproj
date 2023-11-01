@@ -150,6 +150,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Media.h" />
     <ClInclude Include="MediaSetting.h" />
+    <ClInclude Include="MediaSetting2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

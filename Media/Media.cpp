@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "Media.h"
+#include "MediaSetting2.h"
 
 #define MAX_LOADSTRING 100
 
@@ -40,6 +41,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    ////////////
+    GetAudioDataFromMediaFile("D:\\learnProject\\Media\\Media\\File\\1.mp4","D:\\learnProject\\Media\\Media\\File\\1.aac");
+    GetVideoDataFromMediaFile("D:\\learnProject\\Media\\Media\\File\\1.mp4", "D:\\learnProject\\Media\\Media\\File\\1.h264");
     // 主消息循环:
     while (GetMessage(&msg, nullptr, 0, 0)) {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
