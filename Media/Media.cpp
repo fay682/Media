@@ -17,6 +17,7 @@ ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+char* MyWideCharToMultiByte(std::wstring& src);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                       _In_opt_ HINSTANCE hPrevInstance,
@@ -42,8 +43,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
     ////////////
-    GetAudioDataFromMediaFile("D:\\learnProject\\Media\\Media\\File\\1.mp4","D:\\learnProject\\Media\\Media\\File\\1.aac");
-    GetVideoDataFromMediaFile("D:\\learnProject\\Media\\Media\\File\\1.mp4", "D:\\learnProject\\Media\\Media\\File\\1.h264");
+    TCHAR path[MAX_PATH];
+    ::GetCurrentDirectory(MAX_PATH, path);
+    std::wstring dir_path = path;
+    auto media_file_path = dir_path + L"\\File\\1.mp4";
+    auto aac_file_path = dir_path + L"\\File\\1_audio.aac";
+    auto h264_file_path = dir_path + L"\\File\\1_video.mp4";
+
+    char* media_file_path_string = MyWideCharToMultiByte(media_file_path);
+    char* aac_file_path_string = MyWideCharToMultiByte(aac_file_path);
+    char* h264_file_path_string = MyWideCharToMultiByte(h264_file_path);
+
+    GetAudioDataFromMediaFile(media_file_path_string, aac_file_path_string);
+    GetVideoDataFromMediaFile(media_file_path_string, h264_file_path_string);
     // 主消息循环:
     while (GetMessage(&msg, nullptr, 0, 0)) {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
@@ -166,4 +178,13 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
         break;
     }
     return (INT_PTR)FALSE;
+}
+
+char*  MyWideCharToMultiByte(std::wstring& src) {
+    auto string_size = WideCharToMultiByte(CP_OEMCP, 0, src.c_str(), -1, NULL, 0, NULL, FALSE);
+    char * dst = new char[string_size];
+    if (string_size) {
+        WideCharToMultiByte(CP_UTF8, 0, src.c_str(), -1, dst, string_size, NULL, FALSE);
+    }
+    return dst;
 }
