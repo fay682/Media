@@ -172,13 +172,6 @@ void RemuxMediaFile(std::string const& src, std::string const& dst) {
         goto _ERROR;
     }
 
-    /*streamIndex = av_find_best_stream(avFmtCtx, AVMEDIA_TYPE_VIDEO, -1, -1, NULL, 0);
-    if (streamIndex < 0) {
-        av_log(NULL, AV_LOG_ERROR, "call av_find_best_stream error!");
-        goto _ERROR;
-    }*/
-    //avFmtCtx->str
-
     //目的文件上下文
    avformat_alloc_output_context2(&outFmtCtx, NULL, NULL, dst.c_str());
    if (!outFmtCtx) {
@@ -231,7 +224,7 @@ void RemuxMediaFile(std::string const& src, std::string const& dst) {
     while (av_read_frame(avFmtCtx, &pkt) >= 0) {
         AVStream* inStream = NULL, * outStream = NULL;
         inStream = avFmtCtx->streams[pkt.stream_index];
-        if (pkt.stream_index < 0) {
+        if (stream_map[pkt.stream_index] < 0) {
             av_packet_unref(&pkt);
             continue;
         }
