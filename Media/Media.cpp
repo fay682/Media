@@ -49,13 +49,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     auto media_file_path = dir_path + L"\\File\\1.mp4";
     auto aac_file_path = dir_path + L"\\File\\1_audio.aac";
     auto h264_file_path = dir_path + L"\\File\\1_video.mp4";
+    auto mov_file_path = dir_path + L"\\File\\1.mov";
 
     char* media_file_path_string = MyWideCharToMultiByte(media_file_path);
     char* aac_file_path_string = MyWideCharToMultiByte(aac_file_path);
     char* h264_file_path_string = MyWideCharToMultiByte(h264_file_path);
+    char* mov_file_path_string= MyWideCharToMultiByte(mov_file_path);
 
     GetAudioDataFromMediaFile(media_file_path_string, aac_file_path_string);
     GetVideoDataFromMediaFile(media_file_path_string, h264_file_path_string);
+    RemuxMediaFile(media_file_path_string, mov_file_path_string);
     // 主消息循环:
     while (GetMessage(&msg, nullptr, 0, 0)) {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
