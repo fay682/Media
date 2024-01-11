@@ -166,47 +166,47 @@ void RemuxMediaFile(std::string const& src, std::string const& dst) {
     int ret;
     int* stream_map = NULL;
     int stream_idx = 0;
-    ret = avformat_open_input(&avFmtCtx, src.c_str(), NULL, NULL);
+    ret = avformat_open_input(&avFmtCtx, src.c_str(), NULL, NULL);//avformat_open_input与avio_open2过程相反
     if (ret != 0) {
         av_log(NULL, AV_LOG_ERROR, "call avformat_open_input error!");
         goto _ERROR;
     }
 
     //目的文件上下文
-   avformat_alloc_output_context2(&outFmtCtx, NULL, NULL, dst.c_str());
-   if (!outFmtCtx) {
-       av_log(NULL, AV_LOG_ERROR, "call avformat_alloc_output_context2 error!");
-       goto _ERROR;
-   }
+    avformat_alloc_output_context2(&outFmtCtx, NULL, NULL, dst.c_str());
+    if (!outFmtCtx) {
+        av_log(NULL, AV_LOG_ERROR, "call avformat_alloc_output_context2 error!");
+        goto _ERROR;
+    }
 
-   stream_map = (int*)av_calloc(avFmtCtx->nb_streams,sizeof(int));
-   if (!stream_map) {
-       av_log(NULL, AV_LOG_ERROR, "call av_calloc error!");
-       goto _ERROR;
-   }
-   for (int i = 0; i < avFmtCtx->nb_streams; i++) {
-       AVStream* outStream = NULL;
-       AVStream* inStream = NULL;
-       AVCodecParameters* inCodecPar = NULL;
-       inStream = avFmtCtx->streams[i];
-       inCodecPar = inStream->codecpar;
-       if (inCodecPar->codec_type != AVMEDIA_TYPE_VIDEO &&
-           inCodecPar->codec_type != AVMEDIA_TYPE_AUDIO &&
-           inCodecPar->codec_type != AVMEDIA_TYPE_SUBTITLE) {
-           stream_map[i] = -1;
-           continue;
-       }
-       stream_map[i] = stream_idx++;
-       //创建输出流
-       outStream = avformat_new_stream(outFmtCtx, NULL);
-       if (!outStream) {
-           av_log(NULL, AV_LOG_ERROR, "call avformat_new_stream error!");
-           goto _ERROR;
-       }
-       //设置输出视频参数
-       avcodec_parameters_copy(outStream->codecpar, inStream->codecpar);
-       outStream->codecpar->codec_tag = 0;//[可以根据多媒体文件自动匹配编解码器]
-   }
+    stream_map = (int*)av_calloc(avFmtCtx->nb_streams, sizeof(int));
+    if (!stream_map) {
+        av_log(NULL, AV_LOG_ERROR, "call av_calloc error!");
+        goto _ERROR;
+    }
+    for (int i = 0; i < avFmtCtx->nb_streams; i++) {
+        AVStream* outStream = NULL;
+        AVStream* inStream = NULL;
+        AVCodecParameters* inCodecPar = NULL;
+        inStream = avFmtCtx->streams[i];
+        inCodecPar = inStream->codecpar;
+        if (inCodecPar->codec_type != AVMEDIA_TYPE_VIDEO &&
+                inCodecPar->codec_type != AVMEDIA_TYPE_AUDIO &&
+                inCodecPar->codec_type != AVMEDIA_TYPE_SUBTITLE) {
+            stream_map[i] = -1;
+            continue;
+        }
+        stream_map[i] = stream_idx++;
+        //创建输出流
+        outStream = avformat_new_stream(outFmtCtx, NULL);
+        if (!outStream) {
+            av_log(NULL, AV_LOG_ERROR, "call avformat_new_stream error!");
+            goto _ERROR;
+        }
+        //设置输出视频参数
+        avcodec_parameters_copy(outStream->codecpar, inStream->codecpar);
+        outStream->codecpar->codec_tag = 0;//[可以根据多媒体文件自动匹配编解码器]
+    }
 
     ret = avio_open2(&outFmtCtx->pb, dst.c_str(), AVIO_FLAG_WRITE, NULL, NULL);//[上下文与目的文件绑定]
     if (ret < 0) {
@@ -291,8 +291,8 @@ void CutMediaFile(const std::string& src, const std::string& dst, double start_t
         inStream = avFmtCtx->streams[i];
         inCodecPar = inStream->codecpar;
         if (inCodecPar->codec_type != AVMEDIA_TYPE_VIDEO &&
-            inCodecPar->codec_type != AVMEDIA_TYPE_AUDIO &&
-            inCodecPar->codec_type != AVMEDIA_TYPE_SUBTITLE) {
+                inCodecPar->codec_type != AVMEDIA_TYPE_AUDIO &&
+                inCodecPar->codec_type != AVMEDIA_TYPE_SUBTITLE) {
             stream_map[i] = -1;
             continue;
         }
@@ -337,13 +337,13 @@ void CutMediaFile(const std::string& src, const std::string& dst, double start_t
     }
 
     //[读取的数据是否为音频数据]
-    while (av_read_frame(avFmtCtx, &pkt) >= 0) {
+    while (av_read_frame(avFmtCtx, &pkt) >= 0) {//更改AVPacket的pts,dts,stream_index
         AVStream* inStream = NULL, * outStream = NULL;
         //每一路流seek到的原始的开始时间
-        if (pkt.dts > 0 && dts_start_time[pkt.stream_index] ==-1) {
+        if (pkt.dts > 0 && dts_start_time[pkt.stream_index] == -1) {
             dts_start_time[pkt.stream_index] = pkt.dts;
         }
-        if (pkt.pts > 0 && pts_start_time[pkt.stream_index] ==-1) {
+        if (pkt.pts > 0 && pts_start_time[pkt.stream_index] == -1) {
             pts_start_time[pkt.stream_index] = pkt.pts;
         }
 
