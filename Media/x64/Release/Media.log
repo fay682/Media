@@ -1,0 +1,15 @@
+﻿  Media.cpp
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 5 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  Media.vcxproj -> C:\RefWS\Test\Media\Media\x64\Release\Media.exe
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avcodec-59.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avdevice-59.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avfilter-8.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avformat-59.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avutil-57.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\postproc-56.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\swresample-4.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\swscale-6.dll
+  已复制         8 个文件。

@@ -1,12 +1,19 @@
-﻿  Media.cpp
-D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  Media.vcxproj -> D:\learnProject\Media\Media\x64\Debug\Media.exe
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avcodec-59.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avdevice-59.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avfilter-8.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avformat-59.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avutil-57.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\postproc-56.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\swresample-4.dll
-  D:\learnProject\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\swscale-6.dll
+﻿  encode_video.cpp
+  Media.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\RefWS\Test\Media\Media\MediaSetting2.h(187,23): warning C4018: “<”: 有符号/无符号不匹配
+C:\RefWS\Test\Media\Media\MediaSetting2.h(287,23): warning C4018: “<”: 有符号/无符号不匹配
+C:\RefWS\Test\Media\Media\MediaSetting2.h(324,50): warning C4244: “参数”: 从“double”转换到“int64_t”，可能丢失数据
+C:\RefWS\Test\Media\Media\MediaSetting2.h(331,23): warning C4018: “<”: 有符号/无符号不匹配
+C:\RefWS\Test\Media\Media\MediaSetting2.h(335,23): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码...
+  Media.vcxproj -> C:\RefWS\Test\Media\Media\x64\Debug\Media.exe
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avcodec-59.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avdevice-59.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avfilter-8.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avformat-59.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\avutil-57.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\postproc-56.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\swresample-4.dll
+  C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\bin\swscale-6.dll
   已复制         8 个文件。

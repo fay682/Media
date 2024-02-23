@@ -1,0 +1,19 @@
+﻿  decode.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  demux.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\RefWS\Test\Media\LittleKumquatPlayer\demux.cpp(23,23): warning C4018: “<”: 有符号/无符号不匹配
+C:\RefWS\Test\Media\LittleKumquatPlayer\demux.cpp(55,41): warning C4244: “=”: 从“double”转换到“int64_t”，可能丢失数据
+C:\RefWS\Test\Media\LittleKumquatPlayer\demux.cpp(56,41): warning C4244: “=”: 从“double”转换到“int64_t”，可能丢失数据
+  demux_thread.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  LittleKumquatPlayer.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  video_decoder.cpp
+  decode_thread.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  video_decode_play_thread.cpp
+C:\RefWS\Test\Media\Media\SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  x_thread.cpp
+  正在生成代码...
+  LittleKumquatPlayer.vcxproj -> C:\RefWS\Test\Media\Media\x64\Debug\LittleKumquatPlayer.exe

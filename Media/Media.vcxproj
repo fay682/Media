@@ -147,6 +147,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="encode_video.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Media.h" />
     <ClInclude Include="MediaSetting.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="encode_video.cpp" />
     <ClCompile Include="Media.cpp" />
   </ItemGroup>
   <ItemGroup>
