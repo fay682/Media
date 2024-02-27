@@ -9,6 +9,23 @@ void Decode::Open(AVCodecParameters* avCodecParamters) {
 
     //根据找到的解码器创建其上下文
     avCodecContext_ = avcodec_alloc_context3(avCodec);
+
+    //if (avCodecParamters->format == 8) {
+    //    avCodecContext_->pkt_timebase.den = 44100;
+    //    avCodecContext_->pkt_timebase.num = 1;
+    //} else {
+    //    avCodecContext_->pkt_timebase.den = 12800;
+    //    avCodecContext_->pkt_timebase.num = 1;
+    //}
+
+
+    //配置解码器上下文参数
+    avcodec_parameters_to_context(avCodecContext_, avCodecParamters);
+    //avcodec_parameters_free(&para);
+
+    //8线程解码
+    //avCodecContext_->thread_count = 8;
+
     int ret = 0;
     ret = avcodec_open2(avCodecContext_, avCodec, NULL);
     if (ret < 0) {
@@ -18,12 +35,12 @@ void Decode::Open(AVCodecParameters* avCodecParamters) {
 
 }
 
-void Decode::Send(AVPacket * avPacket) {
+bool Decode::Send(AVPacket * avPacket) {
     mutex_.lock();
     if (!avPacket) {
         std::string err_str = "空数据包！";
         mutex_.unlock();
-        return;
+        return false;
     }
 
     //不保存数据包，直接传给解码器
@@ -36,9 +53,10 @@ void Decode::Send(AVPacket * avPacket) {
     if (ret != 0) {
         std::string err_str = "数据包发送给解码器失败";
         mutex_.unlock();
-        return;
+        return false;
     }
     mutex_.unlock();
+    return true;
 }
 
 AVFrame* Decode::Receive() {

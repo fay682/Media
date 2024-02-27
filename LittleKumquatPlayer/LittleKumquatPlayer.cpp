@@ -171,7 +171,7 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
 
 void Test() {
     DemuxThread demux_thread_;
-    demux_thread_.Open("C:\\RefWS\\Test\\Media\\Media\\File\\1.mp4");
-    demux_thread_.Start();
+    //demux_thread_.Start();
     demux_thread_.StartRelate();
+    demux_thread_.Open("C:\\RefWS\\Test\\Media\\Media\\File\\1.mp4");
 }

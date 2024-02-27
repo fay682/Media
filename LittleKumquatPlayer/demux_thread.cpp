@@ -9,22 +9,30 @@ DemuxThread::~DemuxThread() {
 }
 
 void DemuxThread::Open(std::string url) {
+    mutex_.lock();
     if (!demux_) {
         demux_ = new Demux();
     }
-    demux_->Open(url);
     if (!video_decode_play_thread_) {
         video_decode_play_thread_ = new VideoDecodePlayThread();
     }
+    demux_->Open(url);
     video_decode_play_thread_->Open(demux_->CopyVideoParam());
+    mutex_.unlock();
 }
 
 void DemuxThread::StartRelate() {
     //启动解封装线程、解码播放线程
+    mutex_.lock();
+    if (!demux_) {
+        demux_ = new Demux();
+    }
     if (!video_decode_play_thread_) {
         video_decode_play_thread_ = new VideoDecodePlayThread();
     }
+    Start();
     video_decode_play_thread_->Start();
+    mutex_.unlock();
 }
 
 
@@ -51,4 +59,15 @@ void DemuxThread::Run() {
         mutex_.unlock();
         Sleep(1);
     }
+}
+
+void DemuxThread::Close() {
+    Wait();
+    if (video_decode_play_thread_) {
+        video_decode_play_thread_->Close();
+    }
+    mutex_.lock();
+    delete video_decode_play_thread_;
+    video_decode_play_thread_ = NULL;
+    mutex_.unlock();
 }

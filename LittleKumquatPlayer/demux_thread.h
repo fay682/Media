@@ -15,7 +15,11 @@ class DemuxThread: public XThread {
 
     void StartRelate();
 
+    void Close();
+
     virtual void Run() override;
+
+
 
   private:
     Demux* demux_;

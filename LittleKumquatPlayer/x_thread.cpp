@@ -14,6 +14,7 @@ void XThread::Stop() {
 void XThread::Wait() {
     if (thread_.joinable()) {
         thread_.join();
+        int t = 0;
     }
 }
 

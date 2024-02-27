@@ -7,6 +7,7 @@ class VideoDecodePlayThread : public DecodeThread {
     virtual void Run() override;
 
     void Open(AVCodecParameters* avCodecParameters);
+    void Close();
   private:
     std::mutex mutex_;
 };

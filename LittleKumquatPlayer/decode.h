@@ -6,11 +6,12 @@
 class Decode {
   public:
     void Open(AVCodecParameters* avCodecParamters);
-    void Send(AVPacket* avPacket);
+    bool Send(AVPacket* avPacket);
     AVFrame* Receive();
 
   private:
     std::mutex mutex_;
+  public:
     AVCodecContext* avCodecContext_ = NULL;
 };
 
