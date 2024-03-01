@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="video_show">
+      <UniqueIdentifier>{e98b8f3c-0a53-4c84-bec9-b55a0040c1ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="video_show\opengl">
+      <UniqueIdentifier>{70d1e8e2-8cfe-4756-8dfa-27292b12bed6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -51,6 +57,12 @@
     <ClInclude Include="video_decode_play_thread.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="video_draw.h">
+      <Filter>video_show\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="test_opengl.h">
+      <Filter>video_show\opengl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LittleKumquatPlayer.cpp">
@@ -76,6 +88,12 @@
     </ClCompile>
     <ClCompile Include="video_decode_play_thread.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="video_draw.cpp">
+      <Filter>video_show\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="test_opengl.cpp">
+      <Filter>video_show\opengl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

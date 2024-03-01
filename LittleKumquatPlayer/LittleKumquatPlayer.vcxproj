@@ -76,12 +76,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0-win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0-win32\lib\$(Configuration)\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -92,13 +92,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0-win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0-win32\lib\$(Configuration)\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,12 +108,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0-win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0-win32\lib\$(Configuration)\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -123,13 +124,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0-win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0-win32\lib\$(Configuration)\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -141,9 +143,11 @@
     <ClInclude Include="LittleKumquatPlayer.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test_opengl.h" />
     <ClInclude Include="video_decoder.h" />
     <ClInclude Include="decode_thread.h" />
     <ClInclude Include="video_decode_play_thread.h" />
+    <ClInclude Include="video_draw.h" />
     <ClInclude Include="x_thread.h" />
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +155,11 @@
     <ClCompile Include="demux.cpp" />
     <ClCompile Include="demux_thread.cpp" />
     <ClCompile Include="LittleKumquatPlayer.cpp" />
+    <ClCompile Include="test_opengl.cpp" />
     <ClCompile Include="video_decoder.cpp" />
     <ClCompile Include="decode_thread.cpp" />
     <ClCompile Include="video_decode_play_thread.cpp" />
+    <ClCompile Include="video_draw.cpp" />
     <ClCompile Include="x_thread.cpp" />
   </ItemGroup>
   <ItemGroup>
