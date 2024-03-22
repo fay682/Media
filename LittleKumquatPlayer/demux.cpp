@@ -1,4 +1,5 @@
 #include "demux.h"
+#include"video_draw_manager.h"
 
 void Demux::Open(std::string url) {
     //解封装获取参数
@@ -31,6 +32,7 @@ void Demux::Open(std::string url) {
             width_ = avCodecParam->width;
             heigh_ = avCodecParam->height;
             video_format_ = avCodecParam->format;
+            VideoDrawManager::GetInstance()->Init(width_, heigh_, VideoDrawType::kSDL);
         }
     }
 

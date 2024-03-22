@@ -8,3 +8,5 @@
 void DrawAngles();
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+
+void LogState(GLuint myShader);

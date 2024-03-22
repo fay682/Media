@@ -19,6 +19,12 @@
     <Filter Include="video_show\opengl">
       <UniqueIdentifier>{70d1e8e2-8cfe-4756-8dfa-27292b12bed6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="video_show\sdl">
+      <UniqueIdentifier>{2a4a26a4-f8fb-4489-a972-465bc8efb693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="video_show\Direct3D">
+      <UniqueIdentifier>{afb4243f-0153-409f-980a-109f31486a1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -57,11 +63,23 @@
     <ClInclude Include="video_decode_play_thread.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="video_draw.h">
-      <Filter>video_show\opengl</Filter>
-    </ClInclude>
     <ClInclude Include="test_opengl.h">
       <Filter>video_show\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl_draw.h">
+      <Filter>video_show\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="video_draw_manager.h">
+      <Filter>video_show</Filter>
+    </ClInclude>
+    <ClInclude Include="video_draw.h">
+      <Filter>video_show</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl_draw.h">
+      <Filter>video_show\sdl</Filter>
+    </ClInclude>
+    <ClInclude Include="direct3d_draw.h">
+      <Filter>video_show\Direct3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,11 +107,23 @@
     <ClCompile Include="video_decode_play_thread.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="video_draw.cpp">
-      <Filter>video_show\opengl</Filter>
-    </ClCompile>
     <ClCompile Include="test_opengl.cpp">
       <Filter>video_show\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl_draw.cpp">
+      <Filter>video_show\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="video_draw_manager.cpp">
+      <Filter>video_show</Filter>
+    </ClCompile>
+    <ClCompile Include="video_draw.cpp">
+      <Filter>video_show</Filter>
+    </ClCompile>
+    <ClCompile Include="sdl_draw.cpp">
+      <Filter>video_show\sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="direct3d_draw.cpp">
+      <Filter>video_show\Direct3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "video_decode_play_thread.h"
 #include <fstream>
 #include<Windows.h>
+#include "video_decode_play_thread.h"
+#include"video_draw_manager.h"
 
 
 std::string url = "test.yuv";
@@ -49,7 +50,8 @@ void VideoDecodePlayThread::Run() {
             }
             //渲染该视频数据
             //保存数据帧
-            SaveFrame(avFrame, decode_->avCodecContext_);
+            //SaveFrame(avFrame, decode_->avCodecContext_);
+            VideoDrawManager::GetInstance()->Draw(avFrame, VideoDrawType::kSDL, decode_->avCodecContext_);
             //释放
             av_frame_free(&avFrame);
         }
