@@ -32,7 +32,7 @@ void Demux::Open(std::string url) {
             width_ = avCodecParam->width;
             heigh_ = avCodecParam->height;
             video_format_ = avCodecParam->format;
-            VideoDrawManager::GetInstance()->Init(width_, heigh_, VideoDrawType::kSDL);
+            VideoDrawManager::GetInstance()->Init(width_, heigh_, VideoDrawType::kOpengl);
         }
     }
 

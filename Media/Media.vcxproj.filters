@@ -27,13 +27,13 @@
     <ClInclude Include="Media.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MediaSetting.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MediaSetting2.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="encode_video.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="media_setting.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -42,6 +42,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="encode_video.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="media_setting.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

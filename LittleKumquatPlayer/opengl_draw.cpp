@@ -115,7 +115,7 @@ void OpenglDraw::Init(int width, int height) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, nullptr);
     glBindTexture(GL_TEXTURE_2D, 0);
 
     glGenTextures(1, &texs[1]);
@@ -124,7 +124,7 @@ void OpenglDraw::Init(int width, int height) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width / 2, height / 2, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, width / 2, height / 2, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, nullptr);
     glBindTexture(GL_TEXTURE_2D, 0);
 
     glGenTextures(1, &texs[2]);
@@ -133,7 +133,7 @@ void OpenglDraw::Init(int width, int height) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width / 2, height / 2, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, width / 2, height / 2, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, nullptr);
     glBindTexture(GL_TEXTURE_2D, 0);
 
     // InitOpengl();
@@ -264,7 +264,7 @@ void OpenglDraw::Draw(AVFrame* srcavFrame, AVCodecContext* codec_context) {
 
 
     if (width_ == avFrame->linesize[0]) {
-        OutputDebugString(L"testLog:" + width_);
+        OutputDebugString(L"testLog:");
         memcpy(datas[0], avFrame->data[0], width_ * height_);
         memcpy(datas[1], avFrame->data[1], width_ * height_ / 4);
         memcpy(datas[2], avFrame->data[2], width_ * height_ / 4);
@@ -289,17 +289,17 @@ void OpenglDraw::Draw(AVFrame* srcavFrame, AVCodecContext* codec_context) {
         // ¸üÐÂuniformÑÕÉ«
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texs[0]);
-        glTexSubImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, width_, height_, GL_RGB, GL_UNSIGNED_BYTE, datas[0]);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, 0, width_, height_, GL_LUMINANCE, GL_UNSIGNED_BYTE, datas[0]);
         glUniform1f(unis[0], 0);
 
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texs[1]);
-        glTexSubImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, width_ / 2, height_ / 2, GL_RGB, GL_UNSIGNED_BYTE, datas[1]);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, 0, width_ / 2, height_ / 2, GL_LUMINANCE, GL_UNSIGNED_BYTE, datas[1]);
         glUniform1f(unis[1], 1);
 
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_2D, texs[2]);
-        glTexSubImage2D(GL_TEXTURE_2D, 0, GL_RGB, 0, width_ / 2, height_ / 2, GL_RGB, GL_UNSIGNED_BYTE, datas[2]);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, 0, width_ / 2, height_ / 2, GL_LUMINANCE, GL_UNSIGNED_BYTE, datas[2]);
         glUniform1f(unis[2], 2);
 
         glBindVertexArray(VAO);

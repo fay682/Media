@@ -51,7 +51,7 @@ void VideoDecodePlayThread::Run() {
             //渲染该视频数据
             //保存数据帧
             //SaveFrame(avFrame, decode_->avCodecContext_);
-            VideoDrawManager::GetInstance()->Draw(avFrame, VideoDrawType::kSDL, decode_->avCodecContext_);
+            VideoDrawManager::GetInstance()->Draw(avFrame, VideoDrawType::kOpengl, decode_->avCodecContext_);
             //释放
             av_frame_free(&avFrame);
         }
