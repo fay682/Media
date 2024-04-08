@@ -52,20 +52,24 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     auto h264_file_path = dir_path + L"\\File\\1_video.mp4";
     auto mov_file_path = dir_path + L"\\File\\1.mov";
     auto cut_file_path = dir_path + L"\\File\\1_cut.mp4";
+    auto yuv_file_path = dir_path + L"\\File\\create_yuv.yuv";
 
     char* media_file_path_string = MyWideCharToMultiByte(media_file_path);
     char* aac_file_path_string = MyWideCharToMultiByte(aac_file_path);
     char* h264_file_path_string = MyWideCharToMultiByte(h264_file_path);
     char* mov_file_path_string = MyWideCharToMultiByte(mov_file_path);
     char* cut_file_path_string = MyWideCharToMultiByte(cut_file_path);
+    char* yuv_file_path_string = MyWideCharToMultiByte(yuv_file_path);
 
-    double start_time = 30, end_time = 60;
+    double start_time = 60, end_time = 90;
 
-    MediaSetting::SetFfmpegLog();
-    MediaSetting::GetAudioDataFromMediaFile(media_file_path_string, aac_file_path_string);
-    //MediaSetting::GetVideoDataFromMediaFile(media_file_path_string, h264_file_path_string);
-    //MediaSetting::RemuxMediaFile(media_file_path_string, mov_file_path_string);
-    //MediaSetting::CutMediaFile(media_file_path_string, cut_file_path_string, start_time, end_time);
+    MediaSetting mediaSetting;
+    mediaSetting.SetFfmpegLog();
+    //mediaSetting.GetAudioDataFromMediaFile(media_file_path_string, aac_file_path_string);
+    //mediaSetting.GetVideoDataFromMediaFile(media_file_path_string, h264_file_path_string);
+    //mediaSetting.RemuxMediaFile(media_file_path_string, mov_file_path_string);
+    //mediaSetting.CutMediaFile(media_file_path_string, cut_file_path_string, start_time, end_time);
+    mediaSetting.CreateYuvVideoFile(yuv_file_path_string);
     // 主消息循环:
     while (GetMessage(&msg, nullptr, 0, 0)) {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {

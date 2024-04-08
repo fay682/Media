@@ -137,8 +137,8 @@ void GetVideoDataFromMediaFile(std::string const& src, std::string const& dst) {
             pkt.stream_index = 0;//[输出文件只有一路音频流]
             pkt.pos = -1;//[自动匹配一帧音频的相对位置]
             av_interleaved_write_frame(outFmtCtx, &pkt);
-            av_packet_unref(&pkt);
         }
+        av_packet_unref(&pkt);
     }
     av_write_trailer(outFmtCtx);
 
