@@ -177,5 +177,5 @@ void Test() {
     DemuxThread demux_thread_;
     //demux_thread_.Start();
     demux_thread_.StartRelate();
-    demux_thread_.Open("C:\\RefWS\\Media\\Media\\File\\1.mp4");
+    demux_thread_.Open("C:\\Test\\Media\\Media\\File\\1.mp4");
 }

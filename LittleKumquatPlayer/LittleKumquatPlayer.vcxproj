@@ -108,12 +108,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0-win32\include;$(SolutionDir)SDK\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0\include;$(SolutionDir)SDK\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0-win32\lib\$(Configuration)\x64;$(SolutionDir)SDK\SDL\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0\lib\$(Configuration)\x64;$(SolutionDir)SDK\SDL\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -124,14 +124,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0-win32\include;$(SolutionDir)SDK\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\include;$(SolutionDir)SDK\glfw-3.4.bin.WIN64\include;$(SolutionDir)SDK\glew-2.1.0\include;$(SolutionDir)SDK\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0-win32\lib\$(Configuration)\x64;$(SolutionDir)SDK\SDL\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDK\glfw-3.4.bin.WIN64;$(SolutionDir)SDK\FFmpeg\ffmpeg-5.1.2-full_build-shared\lib;$(SolutionDir)SDK\glew-2.1.0\lib\$(Configuration)\x64;$(SolutionDir)SDK\SDL\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
